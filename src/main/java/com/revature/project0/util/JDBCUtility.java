@@ -1,6 +1,8 @@
 package com.revature.project0.util;
 
 import java.sql.Connection;
+
+
 import org.postgresql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -26,6 +28,8 @@ public class JDBCUtility {
 		String url = System.getenv("DB_URL");
 		
 		connection = DriverManager.getConnection(url, username, password);
+		
+		
 		return connection;
 	}
 }

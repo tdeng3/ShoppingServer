@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.project0.Dao.DatabaseOrderStatusDao;
@@ -22,6 +24,8 @@ public class StoreServe extends HttpServlet {
     public StoreServe() {
         super();
     }
+    private static Logger logger = Logger.getLogger(HttpServlet.class);
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		response.getWriter().append("Test connection");
 //		Login checkRule = new Login();
@@ -29,6 +33,8 @@ public class StoreServe extends HttpServlet {
 //		if(Rule.equals("Manager")){
 //
 //		}
+		logger.debug("Get request made to " + request.getRequestURI());
+
 		String p_rule = "Guest";
 		p_rule = request.getParameter("Role");
 		if(p_rule.equals("Manager")) {
