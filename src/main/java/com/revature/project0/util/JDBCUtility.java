@@ -23,9 +23,12 @@ public class JDBCUtility {
 		 * export PO_USER="postgres"
 		 * launchctl setenv P0_USER $P0_USER
 		 */
-		String username = System.getenv("P0_USER");
-		String password = System.getenv("P0_PW");
-		String url = System.getenv("DB_URL");
+//		String username = System.getenv("P0_USER");
+//		String password = System.getenv("P0_PW");
+//		String url = System.getenv("DB_URL");
+		String url = "jdbc:postgresql://localhost:5432/postgres";
+		String username = "postgres";
+		String password = "1462";
 		
 		connection = DriverManager.getConnection(url, username, password);
 		

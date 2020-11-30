@@ -33,6 +33,7 @@ public class StoreServe extends HttpServlet {
 //		if(Rule.equals("Manager")){
 //
 //		}
+		//response.getWriter().append("Works!");
 		logger.debug("Get request made to " + request.getRequestURI());
 
 		String p_rule = "Guest";
@@ -41,9 +42,11 @@ public class StoreServe extends HttpServlet {
 		
 			DatabaseProductDao databaseProduct = new DatabaseProductDao();
 			String jsonString = objectMapper.writeValueAsString(databaseProduct.getAllProduct());
-			response.getWriter().append(jsonString);
-			response.setContentType("application/json");
-			response.setStatus(200);
+			
+			
+//			response.getWriter().append(jsonString);
+//			response.setContentType("application/json");
+//			response.setStatus(200);
 		
 		} else {
 			response.getWriter().append("You do not have permission");
