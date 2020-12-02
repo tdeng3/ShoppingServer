@@ -12,8 +12,7 @@ public class JDBCUtility {
 		/*
 		 * initialize the connection
 		 */
-		Connection connection = null;
-		DriverManager.registerDriver(new Driver());
+		
 		/*
 		 * set up environment variable
 		 * String url = "jdbc:postgresql://localhost:5432/postgres";
@@ -26,6 +25,8 @@ public class JDBCUtility {
 //		String username = System.getenv("P0_USER");
 //		String password = System.getenv("P0_PW");
 //		String url = System.getenv("DB_URL");
+		Connection connection = null;
+		DriverManager.registerDriver(new Driver());
 		String url = "jdbc:postgresql://localhost:5432/postgres";
 		String username = "postgres";
 		String password = "1462";

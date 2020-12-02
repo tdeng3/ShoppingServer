@@ -44,9 +44,9 @@ public class StoreServe extends HttpServlet {
 			String jsonString = objectMapper.writeValueAsString(databaseProduct.getAllProduct());
 			
 			
-//			response.getWriter().append(jsonString);
-//			response.setContentType("application/json");
-//			response.setStatus(200);
+			response.getWriter().append(jsonString);
+			response.setContentType("application/json");
+			response.setStatus(200);
 		
 		} else {
 			response.getWriter().append("You do not have permission");
