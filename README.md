@@ -9,19 +9,65 @@ This application was created using: Java 8, JDBC, Servlets, Tomcat 8.5, PostgreS
     -description
     -example input/output
 
-# Login with username and password
+# DOMO
+Login
+
 Type in username and password in parameters field and follow by your email and password.
 If you login successfully, it will return your role. Otherwise, you will be recognized as Guest.
+
+Input:
+>http://localhost:8080/Project0/Login?username=admin2@gmail.com&password=1234
+
+Output:
 ```json
 [
     "Manager"
 ]
 ```
-You will have more functionlities Depend on your role.
+Change Password
 
-# Get /displayAllProductWithStatus
-Get all products that are in the product database.
-See example output below
+Input:
+
+>http://localhost:8080/Project0/ChangePassword?email=customerA@gmail.com&password=999
+
+Output:
+```json
+User email: customerA@gmail.com change password successfully.
+```
+
+Delete User
+
+Input:
+>http://localhost:8080/Project0/DeleteUser?id=7
+
+Output:
+```json
+User id: 7 has been deleted successfully.
+```
+Add a new product
+
+Input:
+>http://localhost:8080/Project0/displayAllProductWithStatus
+
+Output:
+```json
+{
+    "id": 6,
+    "name": "cat",
+    "status": {
+        "id": 1,
+        "status": "Shipped"
+    }
+}
+```
+
+If your role is manager, you can run
+displayAllProductWithStatus
+
+Input:
+>http://localhost:8080/Project0/displayAllProductWithStatus?Role=Manager
+
+Output:
 ```json
 [
     {
@@ -37,7 +83,7 @@ See example output below
         "name": "Chair",
         "status": {
             "id": 2,
-            "status": "Not Shipped"
+            "status": "Coming soon"
         }
     },
     {
@@ -47,21 +93,45 @@ See example output below
             "id": 3,
             "status": "Not Shipped"
         }
+    },
+    {
+        "id": 4,
+        "name": "Caps",
+        "status": {
+            "id": 3,
+            "status": "Not Shipped"
+        }
+    },
+    {
+        "id": 5,
+        "name": "Knife",
+        "status": {
+            "id": 1,
+            "status": "Shipped"
+        }
     }
 ]
 ```
+
 ## GET /FindOrderById
 Search a product by ID from database
 See example output below
+
+Input:
+>http://localhost:8080/Project0/FindOrderById?id=2
+
+Output:
 ```json
-{
-    "id": 3,
-    "name": "Printer",
-    "status": {
-        "id": 3,
-        "status": "Not Shipped"
+[
+    {
+        "id": 2,
+        "name": "Chair",
+        "status": {
+            "id": 2,
+            "status": "Coming soon"
+        }
     }
-}
+]
 ```
 ## POST /RegisterAndInsertNew
 You can add new user's name and role and insert it into member database.

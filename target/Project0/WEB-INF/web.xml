@@ -79,4 +79,44 @@
     <servlet-name>test</servlet-name>
     <url-pattern>/test</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ChangePassword</display-name>
+    <servlet-name>ChangePassword</servlet-name>
+    <servlet-class>com.revature.project0.login.ChangePassword</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangePassword</servlet-name>
+    <url-pattern>/ChangePassword</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteUser</display-name>
+    <servlet-name>DeleteUser</servlet-name>
+    <servlet-class>com.revature.project0.login.DeleteUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteUser</servlet-name>
+    <url-pattern>/DeleteUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DisplayAllProductWithStatus</display-name>
+    <servlet-name>DisplayAllProductWithStatus</servlet-name>
+    <servlet-class>com.reveture.project0.servlet.DisplayAllProductWithStatus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayAllProductWithStatus</servlet-name>
+    <url-pattern>/DisplayAllProductWithStatus</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProductWithStatus</display-name>
+    <servlet-name>ProductWithStatus</servlet-name>
+    <servlet-class>com.reveture.project0.servlet.ProductWithStatus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductWithStatus</servlet-name>
+    <url-pattern>/ProductWithStatus</url-pattern>
+  </servlet-mapping>
 </web-app>
