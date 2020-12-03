@@ -1,6 +1,7 @@
 package com.revature.project0.Dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,10 +17,7 @@ public class DatabaseProductDao {
 		 * Since we have two tables, we need to write a sqlQuery to return product with order status.
 		 */
 		
-		String sqlQuery = "SELECT *"
-						+ "FROM product p "
-						+ "INNER JOIN orderStatus o "
-						+ "On p.orderID = o.id";
+		String sqlQuery = "SELECT * FROM product p INNER JOIN orderStatus r On p.orderID = r.id";
 		ArrayList<Product> products = new ArrayList<>();
 		
 		try (Connection connection = JDBCUtility.getConnection()) {
@@ -47,6 +45,37 @@ public class DatabaseProductDao {
 		return products;
 		
 	}
+	
+	public Product insertProduct (String productName, OrderStatus status) {
+		try(Connection connection = JDBCUtility.getConnection()) {
+			connection.setAutoCommit(false);
+			String sqlQuery = "INSERT INTO product"
+							+ "(name,orderID)"
+							+ "VALUES "
+							+ "(?, ?)";
+			PreparedStatement pstmt = connection.prepareStatement(sqlQuery,Statement.RETURN_GENERATED_KEYS);
+			pstmt.setString(1, productName);
+			pstmt.setInt(2, status.getId());
+			if (pstmt.executeUpdate() != 1) {
+				throw new SQLException("Inserting product failed, no rows were affected");
+				
+			}
+			int autoId = 0;
+			ResultSet generatedKeys = pstmt.getGeneratedKeys();
+			if (generatedKeys.next()) {
+				autoId = generatedKeys.getInt(1);
+			} else {
+				throw new SQLException("Inserting product failed, no ID generated");
+			}
+			connection.commit();
+			return new Product(autoId, productName,status);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public ArrayList<Product> findOrderById(int p_id) {
 		/*
 		 * Since we have two tables, we need to write a sqlQuery to return product with order status.

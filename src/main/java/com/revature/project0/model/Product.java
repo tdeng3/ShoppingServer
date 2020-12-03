@@ -8,15 +8,16 @@ public class Product {
 	public Product() {
 		super();
 	}
+	public Product(String name, OrderStatus status) {
+		this.name = name;
+		this.status = status;
+	}
 	public Product(int id, String name, OrderStatus status) {
 		this.id = id;
 		this.name = name;
 		this.status = status;
 	}
-	public Product(String name, OrderStatus status) {
-		this.name = name;
-		this.status = status;
-	}
+	
 	
 	public int getId() {
 		return id;

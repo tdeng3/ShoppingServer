@@ -99,4 +99,24 @@
     <servlet-name>DeleteUser</servlet-name>
     <url-pattern>/DeleteUser</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DisplayAllProductWithStatus</display-name>
+    <servlet-name>DisplayAllProductWithStatus</servlet-name>
+    <servlet-class>com.reveture.project0.servlet.DisplayAllProductWithStatus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayAllProductWithStatus</servlet-name>
+    <url-pattern>/DisplayAllProductWithStatus</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProductWithStatus</display-name>
+    <servlet-name>ProductWithStatus</servlet-name>
+    <servlet-class>com.reveture.project0.servlet.ProductWithStatus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductWithStatus</servlet-name>
+    <url-pattern>/ProductWithStatus</url-pattern>
+  </servlet-mapping>
 </web-app>
