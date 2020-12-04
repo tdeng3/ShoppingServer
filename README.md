@@ -10,13 +10,13 @@ This application was created using: Java 8, JDBC, Servlets, Tomcat 8.5, PostgreS
     -example input/output
 
 # DOMO
-Login
+Login (doGET Method)
 
 Type in username and password in parameters field and follow by your email and password.
 If you login successfully, it will return your role. Otherwise, you will be recognized as Guest.
 
 Input:
->http://localhost:8080/Project0/Login?username=admin2@gmail.com&password=1234
+>http:3.135.225.25:8080/Project0/Login?username=admin2@gmail.com&password=1234
 
 Output:
 ```json
@@ -24,30 +24,38 @@ Output:
     "Manager"
 ]
 ```
-Change Password
+Change Password (doPOST method)
 
 Input:
 
->http://localhost:8080/Project0/ChangePassword?email=customerA@gmail.com&password=999
+>http://3.135.225.25:8080/Project0/ChangePassword?email=customerA@gmail.com&password=999
 
 Output:
 ```json
 User email: customerA@gmail.com change password successfully.
 ```
 
-Delete User
+Delete User (doGET method)
 
 Input:
->http://localhost:8080/Project0/DeleteUser?id=7
+>http://3.135.225.25:8080/Project0/DeleteUser?id=5
 
 Output:
 ```json
 User id: 7 has been deleted successfully.
 ```
-Add a new product
+Add a new product (doPOST Method)
 
-Input:
->http://localhost:8080/Project0/displayAllProductWithStatus
+Input: 
+>http://3.135.225.25:8080/Project0/displayAllProductWithStatus
+
+Product Body
+```json
+{
+    "name":"cat",
+    "status":"Shipped"
+}
+```
 
 Output:
 ```json
@@ -65,7 +73,7 @@ If your role is manager, you can run
 displayAllProductWithStatus
 
 Input:
->http://localhost:8080/Project0/displayAllProductWithStatus?Role=Manager
+>http://3.135.225.25:8080/Project0/displayAllProductWithStatus?Role=Manager
 
 Output:
 ```json
@@ -118,7 +126,7 @@ Search a product by ID from database
 See example output below
 
 Input:
->http://localhost:8080/Project0/FindOrderById?id=2
+>http://3.135.225.25:8080/Project0/FindOrderById?id=2
 
 Output:
 ```json
@@ -133,24 +141,7 @@ Output:
     }
 ]
 ```
-## POST /RegisterAndInsertNew
-You can add new user's name and role and insert it into member database.
-Example Request Body:
-```json
-{
-    "id": 6,
-    "names": "Tian",
-    "roles": "Developer"
-}
-```
-Example Response:
-```json
-{
-    "id": 7,
-    "names": "??",
-    "roles": "Hacker"
-}
-```
+
 # How to Startup the Application
 ## Prerequisites
 You will have to download the following in order to set up the app locally:
