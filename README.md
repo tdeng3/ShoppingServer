@@ -228,5 +228,7 @@ Notice! This app should use the above environment variables for the DB.... but w
     - setup tomcat to run virtually within your ide
     - startup tomcat and navigate to {URL}
 
+- Testing Jenkins
 # Contributors
 Tianyuan Deng
+
