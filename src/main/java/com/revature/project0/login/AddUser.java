@@ -11,18 +11,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.project0.Dao.AddOrDeleteMemberDAO;
 import com.revature.project0.model.Userlist;
-import com.revature.project0.model.members;
 
 /**
- * Servlet implementation class RegisterAndInsertNew
+ * Servlet implementation class AddUser
  */
-public class AddNewUser extends HttpServlet {
+public class AddUser extends HttpServlet {
     private ObjectMapper objectMapper = new ObjectMapper();
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		doGet(request, response);
 		BufferedReader reader = request.getReader();
 		String line;
 		StringBuilder sb = new StringBuilder();
@@ -44,22 +40,4 @@ public class AddNewUser extends HttpServlet {
 		}
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
