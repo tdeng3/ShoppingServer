@@ -34,30 +34,30 @@ public class Login extends HttpServlet {
 		myrole = jsonString;
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BufferedReader reader = request.getReader();
-		StringBuilder sb = new StringBuilder();
-		String line;
-		while((line = reader.readLine()) != null) {
-			sb.append(line);
-		}
-		String jsonString = sb.toString();
-		try {
-			Userlist userlist = objectMapper.readValue(jsonString, Userlist.class);
-			LoginDao loginDao = new LoginDao();
-			
-			
-			
-			Userlist u = loginDao.addNewMember(userlist);
-			String userJSON = objectMapper.writeValueAsString(u);
-			System.out.println("hi" + u);
-			response.getWriter().append(userJSON);
-			response.setContentType("application/json");
-			response.setStatus(201);
-			
-			
-		} catch (JsonProcessingException e) {
-			response.setStatus(400);
-		}	
+//		BufferedReader reader = request.getReader();
+//		StringBuilder sb = new StringBuilder();
+//		String line;
+//		while((line = reader.readLine()) != null) {
+//			sb.append(line);
+//		}
+//		String jsonString = sb.toString();
+//		try {
+//			Userlist userlist = objectMapper.readValue(jsonString, Userlist.class);
+//			LoginDao loginDao = new LoginDao();
+//			
+//			
+//			
+//			Userlist u = loginDao.addNewMember(userlist);
+//			String userJSON = objectMapper.writeValueAsString(u);
+//			System.out.println("hi" + u);
+//			response.getWriter().append(userJSON);
+//			response.setContentType("application/json");
+//			response.setStatus(201);
+//			
+//			
+//		} catch (JsonProcessingException e) {
+//			response.setStatus(400);
+//		}	
 	}
 
 }

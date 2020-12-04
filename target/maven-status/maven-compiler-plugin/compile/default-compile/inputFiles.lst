@@ -5,7 +5,6 @@
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/App.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/Dao/LoginDao.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/StoreServe.java
-/Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/login/AddNewUser.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/FindOrderById.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/model/OrderStatus.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/FindOrderByName.java
@@ -14,6 +13,7 @@
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/login/DeleteUser.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/ProductWithStatus.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/model/Product.java
+/Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/login/ShowAllUsers.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/Dao/ChangePasswordDao.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/Dao/DatabaseProductDao.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/login/Login.java
@@ -21,3 +21,4 @@
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/Dao/AddOrDeleteMemberDAO.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/template/InsertProductTemplate.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/util/JDBCUtility.java
+/Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/login/AddUser.java

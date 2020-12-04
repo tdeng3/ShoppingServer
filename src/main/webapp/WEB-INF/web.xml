@@ -119,4 +119,14 @@
     <servlet-name>AddUser</servlet-name>
     <url-pattern>/AddUser</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowAllUsers</display-name>
+    <servlet-name>ShowAllUsers</servlet-name>
+    <servlet-class>com.revature.project0.login.ShowAllUsers</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowAllUsers</servlet-name>
+    <url-pattern>/ShowAllUsers</url-pattern>
+  </servlet-mapping>
 </web-app>

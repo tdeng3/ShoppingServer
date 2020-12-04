@@ -61,16 +61,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>RegisterAndInsertNew</display-name>
-    <servlet-name>RegisterAndInsertNew</servlet-name>
-    <servlet-class>com.revature.project0.login.RegisterAndInsertNew</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>RegisterAndInsertNew</servlet-name>
-    <url-pattern>/RegisterAndInsertNew</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>test</display-name>
     <servlet-name>test</servlet-name>
     <servlet-class>com.reveture.project0.servlet.test</servlet-class>
@@ -118,5 +108,25 @@
   <servlet-mapping>
     <servlet-name>ProductWithStatus</servlet-name>
     <url-pattern>/ProductWithStatus</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddUser</display-name>
+    <servlet-name>AddUser</servlet-name>
+    <servlet-class>com.revature.project0.login.AddUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddUser</servlet-name>
+    <url-pattern>/AddUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowAllUsers</display-name>
+    <servlet-name>ShowAllUsers</servlet-name>
+    <servlet-class>com.revature.project0.login.ShowAllUsers</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowAllUsers</servlet-name>
+    <url-pattern>/ShowAllUsers</url-pattern>
   </servlet-mapping>
 </web-app>

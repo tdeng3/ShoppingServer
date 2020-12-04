@@ -10,7 +10,7 @@ This application was created using: Java 8, JDBC, Servlets, Tomcat 8.5, PostgreS
     -example input/output
 
 # DOMO
-Login (doGET Method)
+## Login (doGET Method)
 
 Type in username and password in parameters field and follow by your email and password.
 If you login successfully, it will return your role. Otherwise, you will be recognized as Guest.
@@ -24,7 +24,7 @@ Output:
     "Manager"
 ]
 ```
-Change Password (doPOST method)
+## Change Password (doPOST method)
 
 Input:
 
@@ -34,42 +34,67 @@ Output:
 ```json
 User email: customerA@gmail.com change password successfully.
 ```
+##ShowAllUsers (doGET Method)
+Input:
+>http://3.135.225.25:8080/Project0/ShowAllUsers
 
-Delete User (doGET method)
+Output:
+```json
+[
+    {
+        "id": 1,
+        "email": "admin2@gmail.com",
+        "password": "1234",
+        "role": "Manager"
+    },
+    {
+        "id": 4,
+        "email": "customerC@gmail.com",
+        "password": "999",
+        "role": "Customer"
+    },
+    {
+        "id": 6,
+        "email": "customerD@gmail.com",
+        "password": "9876",
+        "role": "Customer"
+    }
+]
+```
+
+## AddNewUser (doPOST Method)
 
 Input:
->http://3.135.225.25:8080/Project0/DeleteUser?id=5
+>http://3.135.225.25:8080/Project0/AddUser
 
-Output:
-```json
-User id: 7 has been deleted successfully.
-```
-Add a new product (doPOST Method)
-
-Input: 
->http://3.135.225.25:8080/Project0/displayAllProductWithStatus
-
-Product Body
+Body:
 ```json
 {
-    "name":"cat",
-    "status":"Shipped"
+    "email":"customerGG@gmail.com",
+    "password":"999",
+    "role":"Customer"
 }
 ```
-
 Output:
 ```json
 {
-    "id": 6,
-    "name": "cat",
-    "status": {
-        "id": 1,
-        "status": "Shipped"
-    }
+    "id": 8,
+    "email": "customerGG@gmail.com",
+    "password": "999",
+    "role": "Customer"
 }
 ```
+## DeleteUser (doGET Method)
+Input:
+>http://3.135.225.25:8080/Project0/DeleteUser?id=8
 
-If your role is manager, you can run
+Output:
+```json
+User id: 8 has been deleted successfully.
+```
+
+
+## If your role is manager, you can run
 displayAllProductWithStatus
 
 Input:
@@ -119,6 +144,30 @@ Output:
         }
     }
 ]
+```
+## Add a new product (doPOST Method)
+
+Input: 
+>http://3.135.225.25:8080/Project0/displayAllProductWithStatus
+
+Product Body
+```json
+{
+    "name":"cat",
+    "status":"Shipped"
+}
+```
+
+Output:
+```json
+{
+    "id": 6,
+    "name": "cat",
+    "status": {
+        "id": 1,
+        "status": "Shipped"
+    }
+}
 ```
 
 ## GET /FindOrderById

@@ -5,7 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
+import com.revature.project0.model.OrderStatus;
+import com.revature.project0.model.Product;
 import com.revature.project0.model.Userlist;
 import com.revature.project0.util.JDBCUtility;
 
@@ -39,7 +42,7 @@ public class AddOrDeleteMemberDAO {
 		}
 		return null;
 	}
-	public Boolean deleteMember (int id) {
+	public boolean deleteMember (int id) {
 		try (Connection connection = JDBCUtility.getConnection()) {
 			
 			String sqlQuery = "DELETE FROM userlist WHERE id = ?";
@@ -52,6 +55,28 @@ public class AddOrDeleteMemberDAO {
 			}
 			
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public ArrayList<Userlist> showAllUsers () {
+		ArrayList<Userlist> userlist = new ArrayList<>();
+
+		try(Connection connection = JDBCUtility.getConnection()){
+			String sqlQuery = "SELECT * FROM userlist";
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery(sqlQuery);
+			while (rs.next()) {
+				int id = rs.getInt(1);
+				String email = rs.getString(2);
+				String password = rs.getString(3);
+				String role = rs.getString(4);
+				Userlist allUsers = new Userlist(id,email,password,role);
+				userlist.add(allUsers);
+			}
+			return userlist;
+		}catch (Exception e) {
+			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return null;
