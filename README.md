@@ -16,7 +16,7 @@ Type in username and password in parameters field and follow by your email and p
 If you login successfully, it will return your role. Otherwise, you will be recognized as Guest.
 
 Input:
->http:3.135.225.25:8080/Project0/Login?username=admin2@gmail.com&password=1234
+>http://3.135.225.25:8080/Project0/Login?username=admin2@gmail.com&password=1234
 
 Output:
 ```json
@@ -34,7 +34,7 @@ Output:
 ```json
 User email: customerA@gmail.com change password successfully.
 ```
-##ShowAllUsers (doGET Method)
+## ShowAllUsers (doGET Method)
 Input:
 >http://3.135.225.25:8080/Project0/ShowAllUsers
 
