@@ -7,8 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.revature.project0.Dao.AddOrDeleteMemberDAO;
-import com.revature.project0.Dao.ChangePasswordDao;
+import com.revature.project0.Dao.DatabaseUserDAO;
 
 /**
  * Servlet implementation class DeleteUser
@@ -20,7 +19,7 @@ public class DeleteUser extends HttpServlet {
 		try {
 			String idInString = request.getParameter("id");
 			int id = Integer.parseInt(idInString);
-			AddOrDeleteMemberDAO deleteMembers = new AddOrDeleteMemberDAO();
+			DatabaseUserDAO deleteMembers = new DatabaseUserDAO();
 			Boolean deleteMem = deleteMembers.deleteMember(id);
 			if(deleteMem) {
 				response.getWriter().append("User id: " +  id + " has been deleted successfully." );

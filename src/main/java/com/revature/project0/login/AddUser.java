@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.project0.Dao.AddOrDeleteMemberDAO;
+import com.revature.project0.Dao.DatabaseUserDAO;
 import com.revature.project0.model.Userlist;
 
 /**
@@ -28,7 +28,7 @@ public class AddUser extends HttpServlet {
 		String jsonString = sb.toString();
 		try {
 			Userlist newUser = objectMapper.readValue(jsonString, Userlist.class);
-			AddOrDeleteMemberDAO registerDao = new AddOrDeleteMemberDAO();
+			DatabaseUserDAO registerDao = new DatabaseUserDAO();
 			Userlist user = registerDao.insertNew(newUser);
 			
 			String userJSON = objectMapper.writeValueAsString(user);

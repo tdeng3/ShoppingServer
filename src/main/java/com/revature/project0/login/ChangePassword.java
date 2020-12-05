@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.revature.project0.Dao.ChangePasswordDao;
+import com.revature.project0.Dao.DatabaseUserDAO;
+
 
 /**
  * Servlet implementation class ChangePassword
@@ -15,12 +16,13 @@ import com.revature.project0.Dao.ChangePasswordDao;
 public class ChangePassword extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		DatabaseUserDAO databaseUserDao = new DatabaseUserDAO();
 
 		try {
 			String email = request.getParameter("email");
 			String newPassword = request.getParameter("password");
-			ChangePasswordDao changeNewPassword = new ChangePasswordDao();
-			Boolean changePassword = changeNewPassword.changePassword(email, newPassword);
+			
+			Boolean changePassword = databaseUserDao.changePassword(email, newPassword);
 			if(changePassword) {
 				response.getWriter().append("User email: " +  email + " change password successfully." );
 				response.setStatus(201);

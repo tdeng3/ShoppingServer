@@ -21,7 +21,7 @@ public class ProductService {
 		this.productDao = productDao;
 		this.statusDao = statusDao;
 	}
-	public ArrayList<Product> getAllProduct(){
+	public Product getAllProduct(){
 		return productDao.getAllProduct();
 	}
 	public Product insertProducts(InsertProductTemplate productTemplate) throws StatusNotFoundException{

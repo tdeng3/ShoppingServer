@@ -12,14 +12,14 @@ import com.revature.project0.model.Product;
 import com.revature.project0.util.JDBCUtility;
 
 public class DatabaseProductDao {
-	public ArrayList<Product> getAllProduct() {
+	public Product getAllProduct() {
 		/*
 		 * Since we have two tables, we need to write a sqlQuery to return product with order status.
 		 */
 		
 		String sqlQuery = "SELECT * FROM product p INNER JOIN orderStatus r On p.orderID = r.id";
-		ArrayList<Product> products = new ArrayList<>();
 		
+		Product product = new Product();
 		try (Connection connection = JDBCUtility.getConnection()) {
 			/*
 			 * Simple statement is good enough
@@ -35,14 +35,14 @@ public class DatabaseProductDao {
 				String status = rs.getString(5);
 				
 				OrderStatus currStatus = new OrderStatus(orderID, status);
-				Product product = new Product(id, name, currStatus);
-				products.add(product);
+				product = new Product(id, name, currStatus);
+				
 			}
-			return products;
+			return product;
 		} catch (SQLException e ) {
 			e.printStackTrace();
 		}
-		return products;
+		return product;
 		
 	}
 	

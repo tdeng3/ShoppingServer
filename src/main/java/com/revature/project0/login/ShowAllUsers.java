@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.project0.Dao.AddOrDeleteMemberDAO;
+import com.revature.project0.Dao.DatabaseUserDAO;
 
 /**
  * Servlet implementation class ShowAllUsers
@@ -16,7 +16,7 @@ public class ShowAllUsers extends HttpServlet {
 	private ObjectMapper objectMapper = new ObjectMapper();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AddOrDeleteMemberDAO showAllUsers = new AddOrDeleteMemberDAO();
+		DatabaseUserDAO showAllUsers = new DatabaseUserDAO();
 		String jsonString = objectMapper.writeValueAsString(showAllUsers.showAllUsers());
 		
 		
