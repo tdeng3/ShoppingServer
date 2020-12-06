@@ -18,15 +18,15 @@ import com.revature.project0.template.InsertProductTemplate;
 /**
  * Servlet implementation class ProductWithStatus
  */
-public class ProductWithStatus extends HttpServlet {
+public class ShowAllOrInsertProduct extends HttpServlet {
 	private ObjectMapper objectMapper = new ObjectMapper();
 	private ProductService productService = new ProductService();
 	
-	public ProductWithStatus() {
+	public ShowAllOrInsertProduct() {
 		super();
 	}
 	
-	public ProductWithStatus(ObjectMapper objectMapper, ProductService productService) {
+	public ShowAllOrInsertProduct(ObjectMapper objectMapper, ProductService productService) {
 		this.objectMapper = objectMapper;
 		this.productService = productService;
 	}

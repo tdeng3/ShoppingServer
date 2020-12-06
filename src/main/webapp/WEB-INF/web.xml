@@ -73,7 +73,7 @@
     <description></description>
     <display-name>ProductWithStatus</display-name>
     <servlet-name>ProductWithStatus</servlet-name>
-    <servlet-class>com.reveture.project0.servlet.ProductWithStatus</servlet-class>
+    <servlet-class>com.reveture.project0.servlet.ShowAllOrInsertProduct</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ProductWithStatus</servlet-name>
