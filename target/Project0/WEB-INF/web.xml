@@ -11,16 +11,6 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>StoreServe</display-name>
-    <servlet-name>StoreServe</servlet-name>
-    <servlet-class>com.reveture.project0.servlet.StoreServe</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>StoreServe</servlet-name>
-    <url-pattern>/displayAllProductWithStatus</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>FindOrderById</display-name>
     <servlet-name>FindOrderById</servlet-name>
     <servlet-class>com.reveture.project0.servlet.FindOrderById</servlet-class>
@@ -61,16 +51,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>test</display-name>
-    <servlet-name>test</servlet-name>
-    <servlet-class>com.reveture.project0.servlet.test</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>test</servlet-name>
-    <url-pattern>/test</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>ChangePassword</display-name>
     <servlet-name>ChangePassword</servlet-name>
     <servlet-class>com.revature.project0.login.ChangePassword</servlet-class>
@@ -88,16 +68,6 @@
   <servlet-mapping>
     <servlet-name>DeleteUser</servlet-name>
     <url-pattern>/DeleteUser</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DisplayAllProductWithStatus</display-name>
-    <servlet-name>DisplayAllProductWithStatus</servlet-name>
-    <servlet-class>com.reveture.project0.servlet.DisplayAllProductWithStatus</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DisplayAllProductWithStatus</servlet-name>
-    <url-pattern>/DisplayAllProductWithStatus</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -128,5 +98,15 @@
   <servlet-mapping>
     <servlet-name>ShowAllUsers</servlet-name>
     <url-pattern>/ShowAllUsers</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteProduct</display-name>
+    <servlet-name>DeleteProduct</servlet-name>
+    <servlet-class>com.reveture.project0.servlet.DeleteProduct</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteProduct</servlet-name>
+    <url-pattern>/DeleteProduct</url-pattern>
   </servlet-mapping>
 </web-app>

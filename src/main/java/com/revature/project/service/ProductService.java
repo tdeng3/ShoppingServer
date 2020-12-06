@@ -21,7 +21,7 @@ public class ProductService {
 		this.productDao = productDao;
 		this.statusDao = statusDao;
 	}
-	public Product getAllProduct(){
+	public ArrayList<Product> getAllProduct(){
 		return productDao.getAllProduct();
 	}
 	public Product insertProducts(InsertProductTemplate productTemplate) throws StatusNotFoundException{
@@ -32,7 +32,8 @@ public class ProductService {
 			throw new StatusNotFoundException("THE USER ATTPEMTED TO INSERT A PRODUCT FOR A STATUS WHICH DOESN'T EXIST");
 		}
 		//System.out.println("name is: " + productTemplate.getName() );
-		return productDao.insertProduct(productTemplate.getName(), stats);
+		return productDao.insertProduct(productTemplate.getName(),productTemplate.getOrderDate(),productTemplate.getPrice(), stats);
 		
 	}
+	
 }

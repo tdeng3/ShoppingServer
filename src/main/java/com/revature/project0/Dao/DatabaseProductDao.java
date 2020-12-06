@@ -12,14 +12,11 @@ import com.revature.project0.model.Product;
 import com.revature.project0.util.JDBCUtility;
 
 public class DatabaseProductDao {
-	public Product getAllProduct() {
-		/*
-		 * Since we have two tables, we need to write a sqlQuery to return product with order status.
-		 */
-		
+	public ArrayList<Product> getAllProduct() {
+	
 		String sqlQuery = "SELECT * FROM product p INNER JOIN orderStatus r On p.orderID = r.id";
 		
-		Product product = new Product();
+		ArrayList<Product> product = new ArrayList<>();
 		try (Connection connection = JDBCUtility.getConnection()) {
 			/*
 			 * Simple statement is good enough
@@ -31,12 +28,15 @@ public class DatabaseProductDao {
 			while (rs.next()) {
 				int id = rs.getInt(1);
 				String name = rs.getString(2);
-				int orderID = rs.getInt(4);
-				String status = rs.getString(5);
+				String orderDate = rs.getString(3);
+				int price = rs.getInt(4);
+				int orderID = rs.getInt(6);
+				String status = rs.getString(7);
 				
 				OrderStatus currStatus = new OrderStatus(orderID, status);
-				product = new Product(id, name, currStatus);
 				
+				Product product2 = new Product(id, name, orderDate, price, currStatus);
+				product.add(product2);
 			}
 			return product;
 		} catch (SQLException e ) {
@@ -46,16 +46,18 @@ public class DatabaseProductDao {
 		
 	}
 	
-	public Product insertProduct (String productName, OrderStatus status) {
+	public Product insertProduct (String productName, String orderDate, int price, OrderStatus status) {
 		try(Connection connection = JDBCUtility.getConnection()) {
 			connection.setAutoCommit(false);
 			String sqlQuery = "INSERT INTO product"
-							+ "(name,orderID)"
+							+ "(name,orderDate,price, orderID)"
 							+ "VALUES "
-							+ "(?, ?)";
+							+ "(?, ?,?,?)";
 			PreparedStatement pstmt = connection.prepareStatement(sqlQuery,Statement.RETURN_GENERATED_KEYS);
 			pstmt.setString(1, productName);
-			pstmt.setInt(2, status.getId());
+			pstmt.setString(2, orderDate);
+			pstmt.setInt(3, price);
+			pstmt.setInt(4, status.getId());
 			if (pstmt.executeUpdate() != 1) {
 				throw new SQLException("Inserting product failed, no rows were affected");
 				
@@ -68,12 +70,29 @@ public class DatabaseProductDao {
 				throw new SQLException("Inserting product failed, no ID generated");
 			}
 			connection.commit();
-			return new Product(autoId, productName,status);
+			return new Product(autoId, productName,orderDate,price,status);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	public boolean deleteProduct(int id) {
+		try (Connection connection = JDBCUtility.getConnection()) {
+			
+			String sqlQuery = "DELETE FROM product WHERE id = ?";
+			PreparedStatement pstmt = connection.prepareStatement(sqlQuery);
+			pstmt.setInt(1, id);
+			if (pstmt.executeUpdate() != 0 ) {
+				return true;
+			}else {
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	public ArrayList<Product> findOrderById(int p_id) {
@@ -98,12 +117,15 @@ public class DatabaseProductDao {
 			while (rs.next()) {
 				int id = rs.getInt(1);
 				String name = rs.getString(2);
-				int orderID = rs.getInt(4);
-				String status = rs.getString(5);
+				String orderDate = rs.getString(3);
+				int price = rs.getInt(4);
+				int orderID = rs.getInt(6);
+				String status = rs.getString(7);
 				
 				OrderStatus currStatus = new OrderStatus(orderID, status);
-				Product product = new Product(id, name, currStatus);
-				products.add(product);
+				
+				Product product2 = new Product(id, name, orderDate, price, currStatus);
+				products.add(product2);
 			}
 			return products;
 		} catch (SQLException e ) {
@@ -131,12 +153,15 @@ public class DatabaseProductDao {
 			while (rs.next()) {
 				int id = rs.getInt(1);
 				String name = rs.getString(2);
-				int orderID = rs.getInt(4);
-				String status = rs.getString(5);
+				String orderDate = rs.getString(3);
+				int price = rs.getInt(4);
+				int orderID = rs.getInt(6);
+				String status = rs.getString(7);
 				
 				OrderStatus currStatus = new OrderStatus(orderID, status);
-				Product product = new Product(id, name, currStatus);
-				products.add(product);
+				
+				Product product2 = new Product(id, name, orderDate, price, currStatus);
+				products.add(product2);
 			}
 			return products;
 		} catch (SQLException e ) {
@@ -163,13 +188,15 @@ public class DatabaseProductDao {
 			while (rs.next()) {
 				int id = rs.getInt(1);
 				String name = rs.getString(2);
-				int orderID = rs.getInt(4);
-				String status = rs.getString(5);
+				String orderDate = rs.getString(3);
+				int price = rs.getInt(4);
+				int orderID = rs.getInt(6);
+				String status = rs.getString(7);
 				
 				OrderStatus currStatus = new OrderStatus(orderID, status);
-				Product product = new Product(id, name, currStatus);
 				
-				products.add(product);
+				Product product2 = new Product(id, name, orderDate, price, currStatus);
+				products.add(product2);
 			}
 			return products;
 		} catch (SQLException e ) {

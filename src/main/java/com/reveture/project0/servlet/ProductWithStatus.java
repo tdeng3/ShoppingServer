@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.core.io.JsonEOFException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.project.service.ProductService;
+import com.revature.project0.Dao.DatabaseProductDao;
 import com.revature.project0.exception.StatusNotFoundException;
 import com.revature.project0.model.Product;
 import com.revature.project0.template.InsertProductTemplate;
@@ -28,6 +29,14 @@ public class ProductWithStatus extends HttpServlet {
 	public ProductWithStatus(ObjectMapper objectMapper, ProductService productService) {
 		this.objectMapper = objectMapper;
 		this.productService = productService;
+	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+		DatabaseProductDao databaseProduct = new DatabaseProductDao();
+		String jsonString = objectMapper.writeValueAsString(databaseProduct.getAllProduct());
+		response.getWriter().append(jsonString);
+		response.setContentType("application/json");
+		response.setStatus(201);
+
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -52,14 +61,6 @@ public class ProductWithStatus extends HttpServlet {
 			response.setStatus(400);
 		}
 		
-//		
-//		DatabaseProductDao databaseProduct = new DatabaseProductDao();
-//		String jsonString = objectMapper.writeValueAsString(databaseProduct.getAllProduct());
-//		
-//		
-//		response.getWriter().append(jsonString);
-//		response.setContentType("application/json");
-//		response.setStatus(200);
 	}
 
 	
