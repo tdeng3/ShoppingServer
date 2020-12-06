@@ -16,13 +16,11 @@ Type in username and password in parameters field and follow by your email and p
 If you login successfully, it will return your role. Otherwise, you will be recognized as Guest.
 
 Input:
->http:3.135.225.25:8080/Project0/Login?username=admin2@gmail.com&password=1234
+>http://3.135.225.25:8080/Project0/Login?email=admin2@gmail.com&password=1234
 
 Output:
 ```json
-[
-    "Manager"
-]
+You have logged in as Manager
 ```
 ## Change Password (doPOST method)
 
@@ -34,7 +32,7 @@ Output:
 ```json
 User email: customerA@gmail.com change password successfully.
 ```
-##ShowAllUsers (doGET Method)
+## ShowAllUsers (doGET Method)
 Input:
 >http://3.135.225.25:8080/Project0/ShowAllUsers
 
@@ -98,7 +96,7 @@ User id: 8 has been deleted successfully.
 displayAllProductWithStatus
 
 Input:
->http://3.135.225.25:8080/Project0/displayAllProductWithStatus?Role=Manager
+>http://3.135.225.25:8080/Project0/ProductWithStatus
 
 Output:
 ```json
@@ -106,6 +104,8 @@ Output:
     {
         "id": 1,
         "name": "Table",
+        "orderDate": "Nov 19th",
+        "price": 168,
         "status": {
             "id": 1,
             "status": "Shipped"
@@ -114,47 +114,49 @@ Output:
     {
         "id": 2,
         "name": "Chair",
+        "orderDate": "Nov 1st",
+        "price": 99,
         "status": {
             "id": 2,
             "status": "Coming soon"
         }
     },
     {
+        "id": 5,
+        "name": "cat",
+        "orderDate": "Dec 1st",
+        "price": 99,
+        "status": {
+            "id": 3,
+            "status": "Not Shipped"
+        }
+    },
+    {
         "id": 3,
         "name": "Printer",
+        "orderDate": "Dec5th",
+        "price": 199,
         "status": {
             "id": 3,
             "status": "Not Shipped"
-        }
-    },
-    {
-        "id": 4,
-        "name": "Caps",
-        "status": {
-            "id": 3,
-            "status": "Not Shipped"
-        }
-    },
-    {
-        "id": 5,
-        "name": "Knife",
-        "status": {
-            "id": 1,
-            "status": "Shipped"
         }
     }
 ]
+
 ```
 ## Add a new product (doPOST Method)
 
 Input: 
->http://3.135.225.25:8080/Project0/displayAllProductWithStatus
+>http://3.135.225.25:8080/Project0/ProductWithStatus
 
 Product Body
 ```json
 {
     "name":"cat",
-    "status":"Shipped"
+    "orderDate":"Dec 1st",
+    "price":99,
+    "status":"Not Shipped"
+
 }
 ```
 
@@ -163,14 +165,16 @@ Output:
 {
     "id": 6,
     "name": "cat",
+    "orderDate": "Dec 1st",
+    "price": 99,
     "status": {
-        "id": 1,
-        "status": "Shipped"
+        "id": 3,
+        "status": "Not Shipped"
     }
 }
 ```
 
-## GET /FindOrderById
+## GET /FindOrderById (doGET Method)
 Search a product by ID from database
 See example output below
 
@@ -183,6 +187,8 @@ Output:
     {
         "id": 2,
         "name": "Chair",
+        "orderDate": "Nov 1st",
+        "price": 99,
         "status": {
             "id": 2,
             "status": "Coming soon"
@@ -228,5 +234,7 @@ Notice! This app should use the above environment variables for the DB.... but w
     - setup tomcat to run virtually within your ide
     - startup tomcat and navigate to {URL}
 
+- Testing Jenkins
 # Contributors
 Tianyuan Deng
+
