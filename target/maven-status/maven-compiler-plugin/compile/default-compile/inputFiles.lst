@@ -18,8 +18,9 @@
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/FindOrderById.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/exception/ProductNotFoundException.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/exception/StatusNotFoundException.java
+/Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/ShowAllOrInsertProduct.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/login/DeleteUser.java
-/Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/ProductWithStatus.java
+/Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/StaticResourceServlet.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/model/Product.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/login/ShowAllUsers.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/login/Login.java

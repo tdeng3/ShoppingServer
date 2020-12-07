@@ -35,7 +35,7 @@ public class ShowAllOrInsertProduct extends HttpServlet {
 		String jsonString = objectMapper.writeValueAsString(databaseProduct.getAllProduct());
 		response.getWriter().append(jsonString);
 		response.setContentType("application/json");
-		response.setStatus(201);
+		response.setStatus(200);
 
 	}
 	

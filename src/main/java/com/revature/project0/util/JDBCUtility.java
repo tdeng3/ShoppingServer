@@ -27,16 +27,14 @@ public class JDBCUtility {
 //		String url = System.getenv("DB_URL");
 		Connection connection = null;
 		DriverManager.registerDriver(new Driver());
-//		String url = "jdbc:postgresql://localhost:5432/postgres";
-//		String username = "postgres";
-//		String password = "1462";
+
 		String username = "postgres";
 		String password = "7086559886";
-		String url="jdbc:postgresql://database-1.cu4yhoaec4da.us-east-2.rds.amazonaws.com:5432/postgres?user=postgres&password=7086559886";
+		String url="jdbc:postgresql://shoppingserverdatabase.cu4yhoaec4da.us-east-2.rds.amazonaws.com:5432";
 		
 		
 		//connection = DriverManager.getConnection(url, username, password);
-		connection = DriverManager.getConnection("jdbc:postgresql://database-1.cu4yhoaec4da.us-east-2.rds.amazonaws.com:5432/postgres?user=postgres&password=7086559886");
+		connection = DriverManager.getConnection("jdbc:postgresql://shoppingserverdatabase.cu4yhoaec4da.us-east-2.rds.amazonaws.com:5432/postgres?user=postgres&password=7086559886");
 		
 		
 		return connection;
