@@ -1,6 +1,8 @@
 com/reveture/project0/servlet/FindOrderByName.class
 com/revature/project0/model/Product.class
+com/reveture/project0/servlet/StaticResourceServlet.class
 com/revature/project0/login/Login.class
+com/reveture/project0/servlet/ShowAllOrInsertProduct.class
 com/revature/project/service/ProductService.class
 com/revature/project0/login/DeleteUser.class
 App.class
@@ -22,4 +24,3 @@ com/revature/project0/login/ShowAllUsers.class
 com/revature/project0/login/ChangePassword.class
 com/revature/project0/exception/ProductNotFoundException.class
 com/reveture/project0/servlet/FindOrderById.class
-com/reveture/project0/servlet/ProductWithStatus.class
