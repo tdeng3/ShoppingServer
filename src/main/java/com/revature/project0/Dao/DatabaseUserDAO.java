@@ -39,6 +39,35 @@ public class DatabaseUserDAO {
 		return myRole;
 		
 	}
+	public ArrayList<Userlist> findUserById(int userId) {
+		
+		String sqlQuery = "SELECT * FROM userlist WHERE id = " + userId + " ";
+		ArrayList<Userlist> userlist = new ArrayList<>();
+		
+		try (Connection connection = JDBCUtility.getConnection()) {
+			/*
+			 * Simple statement is good enough
+			 * import from sql.Statement
+			 */
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery(sqlQuery);
+			
+			while (rs.next()) {
+				int id = rs.getInt(1);
+				String email = rs.getString(2);
+				String password = rs.getString(3);
+				String role = rs.getString(4);
+	
+				Userlist userlist2 = new Userlist(id, email,password,role);
+				userlist.add(userlist2);
+			}
+			return userlist;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 	
 	public Boolean changePassword(String email, String newPassword) {
 		try (Connection connection = JDBCUtility.getConnection()) {

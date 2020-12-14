@@ -2,6 +2,7 @@ package com.revature.project0.model;
 
 public class Product {
 	private int id;
+	private int userId;
 	private String name;
 	private String orderDate;
 	private int price;
@@ -11,15 +12,18 @@ public class Product {
 	public Product() {
 		super();
 	}
-	public Product(String name, String orderDate, int price,  OrderStatus status) {
+	public Product(int userId, String name, String orderDate, int price,  OrderStatus status) {
+		
 		this.name = name;
+		this.userId = userId;
 		this.orderDate = orderDate;
 		this.price = price;
 		this.status = status;
 		
 	}
-	public Product(int id, String name, String orderDate, int price, OrderStatus status) {
+	public Product(int id,int userId, String name, String orderDate, int price, OrderStatus status) {
 		this.id = id;
+		this.userId = userId;
 		this.name = name;
 		this.orderDate = orderDate;
 		this.price = price;
@@ -34,6 +38,14 @@ public class Product {
 		this.id = id;
 	}
 	
+	
+	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	public String getName() {
 		return name;
 	}
@@ -60,8 +72,9 @@ public class Product {
 	}
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", orderDate=" + orderDate + ", price=" + price + ", status="
-				+ status + "]";
+		return "Product [id=" + id + ", userId=" + userId + ", name=" + name + ", orderDate=" + orderDate + ", price="
+				+ price + ", status=" + status + "]";
 	}
+	
 	
 }

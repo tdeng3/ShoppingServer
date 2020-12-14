@@ -9,9 +9,68 @@ import java.util.ArrayList;
 
 import com.revature.project0.model.OrderStatus;
 import com.revature.project0.model.Product;
+import com.revature.project0.model.ProductList;
 import com.revature.project0.util.JDBCUtility;
 
 public class DatabaseProductDao {
+	
+	
+	
+	public ArrayList<ProductList> showProductList() {
+		String sqlQuery = "SELECT * FROM productlist";
+		ArrayList<ProductList> product = new ArrayList<>();
+		try(Connection connection = JDBCUtility.getConnection()){
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery(sqlQuery);
+			
+			while(rs.next()) {
+				int id = rs.getInt(1);
+				String productName = rs.getString(2);
+				String productDescription = rs.getString(3);
+				String productPrice = rs.getString(4);
+				ProductList product2 = new ProductList(id, productName, productDescription, productPrice);
+				product.add(product2);
+			}
+			return product;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return product;
+		
+	}
+	public ArrayList<Product>productWithStatusByUserId(int userid) {
+		String sqlQuery = "SELECT * FROM product p INNER JOIN orderStatus r ON p.orderID = r.id WHERE userid = " + userid + " ";
+		ArrayList<Product> product = new ArrayList<>();
+		try (Connection connection = JDBCUtility.getConnection()) {
+			/*
+			 * Simple statement is good enough
+			 * import from sql.Statement
+			 */
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery(sqlQuery);
+			
+			while (rs.next()) {
+				int id = rs.getInt(1);
+				
+				String name = rs.getString(3);
+				String orderDate = rs.getString(4);
+				int price = rs.getInt(5);
+				int orderID = rs.getInt(7);
+				String status = rs.getString(8);
+				
+				OrderStatus currStatus = new OrderStatus(orderID, status);
+				
+				Product product2 = new Product(id, userid, name, orderDate, price, currStatus);
+				product.add(product2);
+			}
+			return product;
+		} catch (SQLException e ) {
+			e.printStackTrace();
+		}
+		return product;
+		
+	}
+	
 	public ArrayList<Product> getAllProduct() {
 	
 		String sqlQuery = "SELECT * FROM product p INNER JOIN orderStatus r On p.orderID = r.id";
@@ -27,15 +86,16 @@ public class DatabaseProductDao {
 			
 			while (rs.next()) {
 				int id = rs.getInt(1);
-				String name = rs.getString(2);
-				String orderDate = rs.getString(3);
-				int price = rs.getInt(4);
-				int orderID = rs.getInt(6);
-				String status = rs.getString(7);
+				int userId = rs.getInt(2);
+				String name = rs.getString(3);
+				String orderDate = rs.getString(4);
+				int price = rs.getInt(5);
+				int orderID = rs.getInt(7);
+				String status = rs.getString(8);
 				
 				OrderStatus currStatus = new OrderStatus(orderID, status);
 				
-				Product product2 = new Product(id, name, orderDate, price, currStatus);
+				Product product2 = new Product(id, userId, name, orderDate, price, currStatus);
 				product.add(product2);
 			}
 			return product;
@@ -46,18 +106,19 @@ public class DatabaseProductDao {
 		
 	}
 	
-	public Product insertProduct (String productName, String orderDate, int price, OrderStatus status) {
+	public Product insertProduct (int userId, String productName, String orderDate, int price, OrderStatus status) {
 		try(Connection connection = JDBCUtility.getConnection()) {
 			connection.setAutoCommit(false);
 			String sqlQuery = "INSERT INTO product"
-							+ "(name,orderDate,price, orderID)"
+							+ "(userId, name,orderDate,price, orderID)"
 							+ "VALUES "
-							+ "(?, ?,?,?)";
+							+ "(?,?,?,?,?)";
 			PreparedStatement pstmt = connection.prepareStatement(sqlQuery,Statement.RETURN_GENERATED_KEYS);
-			pstmt.setString(1, productName);
-			pstmt.setString(2, orderDate);
-			pstmt.setInt(3, price);
-			pstmt.setInt(4, status.getId());
+			pstmt.setInt(1, userId);
+			pstmt.setString(2, productName);
+			pstmt.setString(3, orderDate);
+			pstmt.setInt(4, price);
+			pstmt.setInt(5, status.getId());
 			if (pstmt.executeUpdate() != 1) {
 				throw new SQLException("Inserting product failed, no rows were affected");
 				
@@ -116,15 +177,16 @@ public class DatabaseProductDao {
 			
 			while (rs.next()) {
 				int id = rs.getInt(1);
-				String name = rs.getString(2);
-				String orderDate = rs.getString(3);
-				int price = rs.getInt(4);
-				int orderID = rs.getInt(6);
-				String status = rs.getString(7);
+				int userId = rs.getInt(2);
+				String name = rs.getString(3);
+				String orderDate = rs.getString(4);
+				int price = rs.getInt(5);
+				int orderID = rs.getInt(7);
+				String status = rs.getString(8);
 				
 				OrderStatus currStatus = new OrderStatus(orderID, status);
 				
-				Product product2 = new Product(id, name, orderDate, price, currStatus);
+				Product product2 = new Product(id, userId, name, orderDate, price, currStatus);
 				products.add(product2);
 			}
 			return products;
@@ -152,15 +214,16 @@ public class DatabaseProductDao {
 			
 			while (rs.next()) {
 				int id = rs.getInt(1);
-				String name = rs.getString(2);
-				String orderDate = rs.getString(3);
-				int price = rs.getInt(4);
-				int orderID = rs.getInt(6);
-				String status = rs.getString(7);
+				int userId = rs.getInt(2);
+				String name = rs.getString(3);
+				String orderDate = rs.getString(4);
+				int price = rs.getInt(5);
+				int orderID = rs.getInt(7);
+				String status = rs.getString(8);
 				
 				OrderStatus currStatus = new OrderStatus(orderID, status);
 				
-				Product product2 = new Product(id, name, orderDate, price, currStatus);
+				Product product2 = new Product(id, userId, name, orderDate, price, currStatus);
 				products.add(product2);
 			}
 			return products;
@@ -187,15 +250,16 @@ public class DatabaseProductDao {
 			
 			while (rs.next()) {
 				int id = rs.getInt(1);
-				String name = rs.getString(2);
-				String orderDate = rs.getString(3);
-				int price = rs.getInt(4);
-				int orderID = rs.getInt(6);
-				String status = rs.getString(7);
+				int userId = rs.getInt(2);
+				String name = rs.getString(3);
+				String orderDate = rs.getString(4);
+				int price = rs.getInt(5);
+				int orderID = rs.getInt(7);
+				String status = rs.getString(8);
 				
 				OrderStatus currStatus = new OrderStatus(orderID, status);
 				
-				Product product2 = new Product(id, name, orderDate, price, currStatus);
+				Product product2 = new Product(id, userId, name, orderDate, price, currStatus);
 				products.add(product2);
 			}
 			return products;

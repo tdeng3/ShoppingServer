@@ -3,7 +3,6 @@
   <display-name>project0</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    
   </welcome-file-list>
   <servlet>
     <description></description>
@@ -107,6 +106,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>FindUserById</display-name>
+    <servlet-name>FindUserById</servlet-name>
+    <servlet-class>com.revature.project0.login.FindUserById</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindUserById</servlet-name>
+    <url-pattern>/FindUserById</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>StaticResourceServlet</display-name>
     <servlet-name>StaticResourceServlet</servlet-name>
     <servlet-class>com.reveture.project0.servlet.StaticResourceServlet</servlet-class>
@@ -123,45 +132,64 @@
     <url-pattern>/js/productlist</url-pattern>
     <url-pattern>/js/shoppingcart</url-pattern>
     <url-pattern>/img/ShoppingTrends.jpeg</url-pattern>
-    
   </servlet-mapping>
   <security-constraint>
-  	<web-resource-collection>
-	  	<web-resource-name>precluded methods</web-resource-name>
-	  	<url-pattern>/static/*</url-pattern>
-  	</web-resource-collection>
-  	<auth-constraint />
+    <web-resource-collection>
+      <web-resource-name>precluded methods</web-resource-name>
+      <url-pattern>/static/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint/>
   </security-constraint>
-  	<filter>
-	  	<filter-name>CorsFilter</filter-name>
-	  	<filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
-		<init-param>
-		    <param-name>cors.allowed.origins</param-name>
-		    <param-value>http://localhost:8080</param-value>
-		</init-param>
-		<init-param>
-		    <param-name>cors.allowed.methods</param-name>
-		    <param-value>GET,POST,HEAD,OPTIONS,PUT</param-value>
-		</init-param>
-		<init-param>
-		    <param-name>cors.allowed.headers</param-name>
-		    <param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers</param-value>
-		</init-param>
-		<init-param>
-		    <param-name>cors.exposed.headers</param-name>
-		    <param-value>Access-Control-Allow-Origin,Access-Control-Allow-Credentials</param-value>
-		</init-param>
-		<init-param>
-		    <param-name>cors.support.credentials</param-name>
-		    <param-value>true</param-value>
-		</init-param>
-		<init-param>
-		    <param-name>cors.preflight.maxage</param-name>
-		    <param-value>10</param-value>
-		</init-param>
-  	</filter>	
-	<filter-mapping>
-	  <filter-name>CorsFilter</filter-name>
-	  <url-pattern>/*</url-pattern>
-	</filter-mapping>
+  <filter>
+    <filter-name>CorsFilter</filter-name>
+    <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+    <init-param>
+      <param-name>cors.allowed.origins</param-name>
+      <param-value>http://localhost:3000, http://localhost:8080</param-value>
+    </init-param>
+    <init-param>
+      <param-name>cors.allowed.methods</param-name>
+      <param-value>GET,POST,HEAD,OPTIONS,PUT</param-value>
+    </init-param>
+    <init-param>
+      <param-name>cors.allowed.headers</param-name>
+      <param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,Access-Control-Allow-Origin</param-value>
+    </init-param>
+    <init-param>
+      <param-name>cors.exposed.headers</param-name>
+      <param-value>Access-Control-Allow-Origin,Access-Control-Allow-Credentials</param-value>
+    </init-param>
+    <init-param>
+      <param-name>cors.support.credentials</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <init-param>
+      <param-name>cors.preflight.maxage</param-name>
+      <param-value>10</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>CorsFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowProductList</display-name>
+    <servlet-name>ShowProductList</servlet-name>
+    <servlet-class>com.reveture.project0.servlet.ShowProductList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowProductList</servlet-name>
+    <url-pattern>/ShowProductList</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>productWithStatusByUserId</display-name>
+    <servlet-name>productWithStatusByUserId</servlet-name>
+    <servlet-class>com.reveture.project0.servlet.productWithStatusByUserId</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>productWithStatusByUserId</servlet-name>
+    <url-pattern>/productWithStatusByUserId</url-pattern>
+  </servlet-mapping>
 </web-app>

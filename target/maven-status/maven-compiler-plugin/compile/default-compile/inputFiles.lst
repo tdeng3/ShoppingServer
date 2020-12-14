@@ -2,12 +2,14 @@
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/model/Userlist.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/App.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/DeleteProduct.java
+/Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/model/ProductList.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project/service/UserServer.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/model/OrderStatus.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/FindOrderByName.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/Dao/DatabaseUserDAO.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/exception/UserNotFoundException.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project/service/ProductService.java
+/Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/ShowProductList.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/Dao/DatabaseProductDao.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/FindOrderByStatus.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/template/InsertProductTemplate.java
@@ -16,9 +18,11 @@
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/model/members.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/login/ChangePassword.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/FindOrderById.java
+/Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/productWithStatusByUserId.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/exception/ProductNotFoundException.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/exception/StatusNotFoundException.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/ShowAllOrInsertProduct.java
+/Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/login/FindUserById.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/login/DeleteUser.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/reveture/project0/servlet/StaticResourceServlet.java
 /Users/tianyuandeng/Desktop/project0/ShoppingServer/src/main/java/com/revature/project0/model/Product.java

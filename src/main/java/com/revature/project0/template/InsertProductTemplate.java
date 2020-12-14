@@ -1,6 +1,7 @@
 package com.revature.project0.template;
 
 public class InsertProductTemplate {
+	private int userId;
 	private String name;
 	private String orderDate;
 	private int price;
@@ -10,11 +11,21 @@ public class InsertProductTemplate {
 		super();
 	}
 	
-	public InsertProductTemplate(String name, String orderDate, int price, String status) {
+	public InsertProductTemplate(int userId, String name, String orderDate, int price, String status) {
+		this.userId = userId;
 		this.name = name;
 		this.orderDate = orderDate;
 		this.price = price;
 		this.status = status;
+	}
+
+	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getName() {
@@ -52,10 +63,11 @@ public class InsertProductTemplate {
 
 	@Override
 	public String toString() {
-		return "InsertProductTemplate [name=" + name + ", orderDate=" + orderDate + ", price=" + price + ", status="
-				+ status + "]";
+		return "InsertProductTemplate [userId=" + userId + ", name=" + name + ", orderDate=" + orderDate + ", price="
+				+ price + ", status=" + status + "]";
 	}
 
+	
 	
 	
 	

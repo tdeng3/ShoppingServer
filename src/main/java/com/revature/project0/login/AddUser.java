@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.project0.Dao.DatabaseUserDAO;
@@ -17,6 +19,7 @@ import com.revature.project0.model.Userlist;
  */
 public class AddUser extends HttpServlet {
     private ObjectMapper objectMapper = new ObjectMapper();
+    private static Logger logger = Logger.getLogger(HttpServlet.class);
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BufferedReader reader = request.getReader();
@@ -36,6 +39,8 @@ public class AddUser extends HttpServlet {
 			response.setContentType("application/json");
 			response.setStatus(201);
 		} catch (JsonProcessingException e) {
+			response.getWriter().append(e.toString());
+			logger.error("Json Processing Exception", e);
 			response.setStatus(400);
 		}
 	}

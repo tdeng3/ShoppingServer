@@ -18,9 +18,13 @@ com/revature/project0/model/OrderStatus.class
 com/revature/project0/model/Userlist.class
 com/revature/project0/login/AddUser.class
 com/revature/project0/exception/UserNotFoundException.class
+com/revature/project0/login/FindUserById.class
+com/reveture/project0/servlet/productWithStatusByUserId.class
 com/revature/project0/Dao/DatabaseOrderStatusDao.class
 com/revature/project0/Dao/DatabaseUserDAO.class
+com/reveture/project0/servlet/ShowProductList.class
 com/revature/project0/login/ShowAllUsers.class
 com/revature/project0/login/ChangePassword.class
 com/revature/project0/exception/ProductNotFoundException.class
 com/reveture/project0/servlet/FindOrderById.class
+com/revature/project0/model/ProductList.class

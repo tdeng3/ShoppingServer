@@ -11,9 +11,11 @@ import com.revature.project0.template.InsertProductTemplate;
 
 public class ProductService {
 	private DatabaseProductDao productDao;
+	
 	private DatabaseOrderStatusDao statusDao;
 	public ProductService() {
 		this.productDao = new DatabaseProductDao();
+		
 		this.statusDao = new DatabaseOrderStatusDao();
 
 	}
@@ -32,7 +34,7 @@ public class ProductService {
 			throw new StatusNotFoundException("THE USER ATTPEMTED TO INSERT A PRODUCT FOR A STATUS WHICH DOESN'T EXIST");
 		}
 		//System.out.println("name is: " + productTemplate.getName() );
-		return productDao.insertProduct(productTemplate.getName(),productTemplate.getOrderDate(),productTemplate.getPrice(), stats);
+		return productDao.insertProduct(productTemplate.getUserId(),productTemplate.getName(),productTemplate.getOrderDate(),productTemplate.getPrice(), stats);
 		
 	}
 	
