@@ -131,7 +131,7 @@ public class DatabaseProductDao {
 				throw new SQLException("Inserting product failed, no ID generated");
 			}
 			connection.commit();
-			return new Product(autoId, productName,orderDate,price,status);
+			return new Product(autoId, userId,productName,orderDate,price,status);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

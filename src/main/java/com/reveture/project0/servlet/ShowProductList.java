@@ -22,6 +22,7 @@ public class ShowProductList extends HttpServlet {
 		response.getWriter().append(jsonString);
 		response.setContentType("application/json");
 		response.setStatus(200);
+		
 	}
 
 	

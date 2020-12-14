@@ -36,6 +36,7 @@ public class ShowAllOrInsertProduct extends HttpServlet {
 		response.getWriter().append(jsonString);
 		response.setContentType("application/json");
 		response.setStatus(200);
+		
 
 	}
 	
@@ -57,7 +58,9 @@ public class ShowAllOrInsertProduct extends HttpServlet {
 			response.setStatus(201);
 			
 		} catch (JsonEOFException |StatusNotFoundException e) {
+			response.getWriter().append(e.toString());
 			
+			System.out.println(e.toString());
 			response.setStatus(400);
 		}
 		

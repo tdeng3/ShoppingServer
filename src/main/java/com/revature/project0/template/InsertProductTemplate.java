@@ -1,6 +1,7 @@
 package com.revature.project0.template;
 
 public class InsertProductTemplate {
+	
 	private int userId;
 	private String name;
 	private String orderDate;
@@ -18,8 +19,12 @@ public class InsertProductTemplate {
 		this.price = price;
 		this.status = status;
 	}
-
 	
+	
+	
+	
+	
+
 	public int getUserId() {
 		return userId;
 	}
